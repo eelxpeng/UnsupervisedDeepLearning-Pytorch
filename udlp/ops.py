@@ -19,4 +19,4 @@ class BCELoss(nn.Module):
 
     def forward(self, input, target):
         return -torch.mean(torch.sum(target*torch.log(torch.clamp(input, min=1e-10))+
-        	(1-target)*torch.log(torch.clamp(1-input, min=1e-10)), 1))
+            (1-target)*torch.log(torch.clamp(1-input, min=1e-10)), 1))
