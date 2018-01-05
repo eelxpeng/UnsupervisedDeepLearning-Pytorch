@@ -1,0 +1,11 @@
+# ignore datasets
+dataset/*
+
+# ignore .pyc
+*.pyc
+
+# ignore results/
+results/*
+
+# ignore run-* bash and output
+run-*
