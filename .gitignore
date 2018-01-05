@@ -3,8 +3,10 @@ dataset/*
 
 # ignore .pyc
 *.pyc
+.DS_Store
 
 # ignore results/
 results/*
 
-
+# ignore run-* bash and output
+run-*
