@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "test_convvae.py", line 28, in <module>
+    torch.save("model/convvae.pt", vae.state_dict())
+  File "/bigstore/hlcm2/xlibo/anaconda3/lib/python3.6/site-packages/torch/serialization.py", line 120, in save
+    return _save(obj, f, pickle_module, pickle_protocol)
+  File "/bigstore/hlcm2/xlibo/anaconda3/lib/python3.6/site-packages/torch/serialization.py", line 181, in _save
+    pickle_module.dump(MAGIC_NUMBER, f, protocol=pickle_protocol)
+TypeError: file must have a 'write' attribute

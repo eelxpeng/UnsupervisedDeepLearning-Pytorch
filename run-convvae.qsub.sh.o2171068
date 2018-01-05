@@ -1,0 +1,46 @@
+Using downloaded and verified file: ./dataset/svhn/train_32x32.mat
+Using downloaded and verified file: ./dataset/svhn/test_32x32.mat
+#Epoch -1: Valid Loss: 0.70686
+#Epoch   0: Train Loss: 0.70617, Valid Loss: 0.69023
+#Epoch   1: Train Loss: 0.68826, Valid Loss: 0.69002
+#Epoch   2: Train Loss: 0.68810, Valid Loss: 0.68982
+#Epoch   3: Train Loss: 0.68802, Valid Loss: 0.68980
+#Epoch   4: Train Loss: 0.68799, Valid Loss: 0.68988
+#Epoch   5: Train Loss: 0.68795, Valid Loss: 0.68974
+#Epoch   6: Train Loss: 0.68794, Valid Loss: 0.68964
+#Epoch   7: Train Loss: 0.68793, Valid Loss: 0.68972
+#Epoch   8: Train Loss: 0.68792, Valid Loss: 0.68978
+#Epoch   9: Train Loss: 0.68791, Valid Loss: 0.68988
+#Epoch  10: Train Loss: 0.68792, Valid Loss: 0.68983
+#Epoch  11: Train Loss: 0.68791, Valid Loss: 0.68979
+#Epoch  12: Train Loss: 0.68792, Valid Loss: 0.68971
+#Epoch  13: Train Loss: 0.68791, Valid Loss: 0.68976
+#Epoch  14: Train Loss: 0.68790, Valid Loss: 0.68981
+#Epoch  15: Train Loss: 0.68791, Valid Loss: 0.68979
+#Epoch  16: Train Loss: 0.68791, Valid Loss: 0.68967
+#Epoch  17: Train Loss: 0.68791, Valid Loss: 0.69003
+#Epoch  18: Train Loss: 0.68791, Valid Loss: 0.68970
+#Epoch  19: Train Loss: 0.68791, Valid Loss: 0.68974
+#Epoch  20: Train Loss: 0.68791, Valid Loss: 0.68971
+#Epoch  21: Train Loss: 0.68791, Valid Loss: 0.68976
+#Epoch  22: Train Loss: 0.68791, Valid Loss: 0.68982
+#Epoch  23: Train Loss: 0.68791, Valid Loss: 0.68971
+#Epoch  24: Train Loss: 0.68791, Valid Loss: 0.68965
+#Epoch  25: Train Loss: 0.68790, Valid Loss: 0.68973
+#Epoch  26: Train Loss: 0.68791, Valid Loss: 0.68967
+#Epoch  27: Train Loss: 0.68791, Valid Loss: 0.68985
+#Epoch  28: Train Loss: 0.68791, Valid Loss: 0.68967
+#Epoch  29: Train Loss: 0.68790, Valid Loss: 0.68990
+#Epoch  30: Train Loss: 0.68791, Valid Loss: 0.68982
+#Epoch  31: Train Loss: 0.68790, Valid Loss: 0.68963
+#Epoch  32: Train Loss: 0.68790, Valid Loss: 0.68970
+#Epoch  33: Train Loss: 0.68790, Valid Loss: 0.68992
+#Epoch  34: Train Loss: 0.68791, Valid Loss: 0.68969
+#Epoch  35: Train Loss: 0.68790, Valid Loss: 0.68985
+#Epoch  36: Train Loss: 0.68790, Valid Loss: 0.68971
+#Epoch  37: Train Loss: 0.68791, Valid Loss: 0.68977
+#Epoch  38: Train Loss: 0.68791, Valid Loss: 0.68982
+#Epoch  39: Train Loss: 0.68790, Valid Loss: 0.68967
+#Epoch  40: Train Loss: 0.68790, Valid Loss: 0.68963
+#Epoch  41: Train Loss: 0.68790, Valid Loss: 0.68973
+#Epoch  42: Train Loss: 0.68791, Valid Loss: 0.68991
