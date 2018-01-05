@@ -3,6 +3,7 @@ dataset/*
 
 # ignore .pyc
 *.pyc
+.DS_Store
 
 # ignore results/
 results/*
