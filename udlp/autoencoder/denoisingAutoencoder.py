@@ -51,6 +51,7 @@ class DenoisingAutoencoder(nn.Module):
         return self.dropout(self.enc_act_func(F.linear(x, self.weight, self.bias)))
 
     def encodeBatch(self, dataloader):
+        use_cuda = torch.cuda.is_available()
         encoded = []
         for batch_idx, (inputs, _) in enumerate(dataloader):
             inputs = inputs.view(inputs.size(0), -1).float()
