@@ -19,4 +19,4 @@ Note:
 
 * The pretrained weights is important to initialize the weights of VaDE.
 * Unlike the original code using combined training and test data for training and evaluation, I split the training and test data, and only use training data for training and test data for evaluation. I think it is a more appropriate way to evaluate the method for generalization.
-* As found, with above evaluation scheme and training for 3000 epochs, the clustering accuracy achieved is 93.65\%.
+* As found, with above evaluation scheme and training for 3000 epochs, the clustering accuracy achieved is 94\%.
