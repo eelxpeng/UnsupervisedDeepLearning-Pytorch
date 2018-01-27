@@ -106,25 +106,25 @@ class StackedDAE(nn.Module):
             every = 3
         # input layer
         # copy encoder weight
-        self.encoder[0].weight.copy_(daeLayers[l].weight)
-        self.encoder[0].bias.copy_(daeLayers[l].bias)
-        self._dec.weight.copy_(daeLayers[l].deweight)
-        self._dec.bias.copy_(daeLayers[l].vbias)
+        self.encoder[0].weight.data.copy_(daeLayers[0].weight.data)
+        self.encoder[0].bias.data.copy_(daeLayers[0].bias.data)
+        self._dec.weight.data.copy_(daeLayers[0].deweight.data)
+        self._dec.bias.data.copy_(daeLayers[0].vbias.data)
 
         for l in range(1, len(self.layers)-2):
             # copy encoder weight
-            self.encoder[l*every].weight.copy_(daeLayers[l].weight)
-            self.encoder[l*every].bias.copy_(daeLayers[l].bias)
+            self.encoder[l*every].weight.data.copy_(daeLayers[l].weight.data)
+            self.encoder[l*every].bias.data.copy_(daeLayers[l].bias.data)
 
             # copy decoder weight
-            self.decoder[-(l-1)*every-1].weight.copy_(daeLayers[l].deweight)
-            self.decoder[-(l-1)*every-1].bias.copy_(daeLayers[l].vbias)
+            self.decoder[-(l-1)*every-2].weight.data.copy_(daeLayers[l].deweight.data)
+            self.decoder[-(l-1)*every-2].bias.data.copy_(daeLayers[l].vbias.data)
 
         # z layer
-        self._enc_mu.weight.copy_(daeLayers[-1].weight)
-        self._enc_mu.bias.copy_(daeLayers[-1].bias)
-        self.decoder[0].weight.copy_(daeLayers[-1].deweight)
-        self.decoder[0].bias.copy_(daeLayers[-1].vbias)
+        self._enc_mu.weight.data.copy_(daeLayers[-1].weight.data)
+        self._enc_mu.bias.data.copy_(daeLayers[-1].bias.data)
+        self.decoder[0].weight.data.copy_(daeLayers[-1].deweight.data)
+        self.decoder[0].bias.data.copy_(daeLayers[-1].vbias.data)
 
     def fit(self, trainloader, validloader, lr=0.001, num_epochs=10, corrupt=0.3,
         loss_type="mse"):
@@ -135,7 +135,7 @@ class StackedDAE(nn.Module):
         use_cuda = torch.cuda.is_available()
         if use_cuda:
             self.cuda()
-        print("=====Denoising Autoencoding layer=======")
+        print("=====Stacked Denoising Autoencoding layer=======")
         optimizer = optim.Adam(filter(lambda p: p.requires_grad, self.parameters()), lr=lr)
         if loss_type=="mse":
             criterion = MSELoss()
@@ -150,11 +150,7 @@ class StackedDAE(nn.Module):
             if use_cuda:
                 inputs = inputs.cuda()
             inputs = Variable(inputs)
-            hidden = self.encode(inputs)
-            if loss_type=="cross-entropy":
-                outputs = self.decode(hidden, binary=True)
-            else:
-                outputs = self.decode(hidden)
+            z, outputs = self.forward(inputs)
 
             valid_recon_loss = criterion(outputs, inputs)
             total_loss += valid_recon_loss.data[0] * len(inputs)
@@ -176,11 +172,7 @@ class StackedDAE(nn.Module):
                 inputs = Variable(inputs)
                 inputs_corr = Variable(inputs_corr)
 
-                hidden = self.encode(inputs_corr)
-                if loss_type=="cross-entropy":
-                    outputs = self.decode(hidden, binary=True)
-                else:
-                    outputs = self.decode(hidden)
+                z, outputs = self.forward(inputs_corr)
                 recon_loss = criterion(outputs, inputs)
                 train_loss += recon_loss.data[0]*len(inputs)
                 recon_loss.backward()
@@ -193,11 +185,7 @@ class StackedDAE(nn.Module):
                 if use_cuda:
                     inputs = inputs.cuda()
                 inputs = Variable(inputs)
-                hidden = self.encode(inputs, train=False)
-                if loss_type=="cross-entropy":
-                    outputs = self.decode(hidden, binary=True)
-                else:
-                    outputs = self.decode(hidden)
+                z, outputs = self.forward(inputs)
 
                 valid_recon_loss = criterion(outputs, inputs)
                 valid_loss += valid_recon_loss.data[0] * len(inputs)

@@ -34,4 +34,5 @@ if __name__ == "__main__":
         dropout=0)
     sdae.pretrain(train_loader, test_loader, lr=args.lr, batch_size=args.batch_size, 
         num_epochs=args.pretrainepochs, corrupt=0.3, loss_type="cross-entropy")
+    sdae.save_model("model/sdae.pt")
     sdae.fit(train_loader, test_loader, lr=args.lr, num_epochs=args.epochs, corrupt=0.3, loss_type="cross-entropy")
